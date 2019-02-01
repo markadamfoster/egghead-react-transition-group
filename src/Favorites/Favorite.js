@@ -31,11 +31,24 @@ export default Favorite
 const Wrapper = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 50px;
 
   button {
+    text-align: center;
     cursor: pointer;
     border: none;
     background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+
+    span {
+      padding-left: 3px; // to center emoji in focus outline
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 1pt #f10000;
+    }
   }
 `

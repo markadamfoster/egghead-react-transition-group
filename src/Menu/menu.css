@@ -16,6 +16,7 @@
 .toggler {
   position: relative;
   z-index: 2;
+  font-size: 14px;
   width: var(--toggler-width);
   height: var(--toggler-height);
   background-color: var(--toggler-bg-color);
