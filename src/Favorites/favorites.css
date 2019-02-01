@@ -1,6 +1,6 @@
 :root {
   --timeout: 500ms;
-  --list-item-max-height: 30px;
+  --list-item-max-height: 50px;
 }
 
 .fade-enter {

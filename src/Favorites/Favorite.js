@@ -16,11 +16,11 @@ class Favorite extends Component {
     return (
       <Wrapper>
         {this.props.favorite}
-        <Delete onClick={this.handleDeleteClick}>
+        <button type="button" onClick={this.handleDeleteClick}>
           <span role="img" aria-label="delete">
             ❌
           </span>
-        </Delete>
+        </button>
       </Wrapper>
     )
   }
@@ -31,9 +31,11 @@ export default Favorite
 const Wrapper = styled.li`
   display: flex;
   justify-content: space-between;
-  height: 30px;
-`
+  height: 50px;
 
-const Delete = styled.div`
-  margin-right: 8px;
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
 `

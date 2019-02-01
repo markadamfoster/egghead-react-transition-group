@@ -8,8 +8,7 @@ import './favorites.css'
 class Favorites extends Component {
   state = {
     inputValue: '',
-    favorites: ['⛷ skiing', '🚵‍♂️ mountain biking', '💻‍ coding'],
-    // favorites: [],
+    favorites: ['💻‍ coding', '🚵‍♂️ mountain biking', '⛷ skiing'],
   }
 
   handleInputChange = e => {
@@ -22,7 +21,7 @@ class Favorites extends Component {
     e.preventDefault()
     this.setState(
       {
-        favorites: [...this.state.favorites, this.state.inputValue],
+        favorites: [this.state.inputValue, ...this.state.favorites],
       },
       () => {
         this.setState({ inputValue: '' })
@@ -39,12 +38,13 @@ class Favorites extends Component {
     return (
       <Wrapper>
         <form onSubmit={this.createFavorite}>
-          <Input
+          <input
+            placeholder="Add favorite..."
             value={this.state.inputValue}
             onChange={this.handleInputChange}
           />
         </form>
-        <TransitionGroup component="ul">
+        <List component="ul">
           {this.state.favorites.map(favorite => (
             <CSSTransition timeout={500} classNames="fade" key={favorite}>
               <Favorite
@@ -53,7 +53,7 @@ class Favorites extends Component {
               />
             </CSSTransition>
           ))}
-        </TransitionGroup>
+        </List>
       </Wrapper>
     )
   }
@@ -62,14 +62,17 @@ class Favorites extends Component {
 export default Favorites
 
 const Wrapper = styled.div`
-  margin-top: 30px;
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 19px;
+    background-color: #efefef;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+  }
 `
 
-const Input = styled.input`
-  width: 100%;
-  font-size: 19px;
-  background-color: #ccc;
-  padding: 20px;
-  border: none;
-  border-radius: 10px;
+const List = styled(TransitionGroup)`
+  padding: 0;
 `
